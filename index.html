@@ -42,29 +42,52 @@
               </tr>
             </thead>
             <tbody>
+              <!-- Thinking of testing disabled also -->
               <tr ng-repeat="contestant in contestants | orderBy: name">
-                <td>{{$index+1}}</td>
-                <td>{{contestant.name}}</td>
-                <td>{{contestant.height}}</td>
-                <td>{{contestant.weight}}</td>
-                <td>{{contestant.begfatPercentage}}</td>
-                <td>{{contestant.endfatPercentage}}</td>
-                <td>{{contestant.percentageLoss}}</td>
-                <td>
-                  <input class="btn-primary" type="submit" ng-click="editContestant(contestant)" value="edit">
-                  <input class="btn-danger" type="submit" ng-click="deleteContestant(contestant)" value="delete">
-                </td>
-                <div id="edit">
+                <div>
                   <td>{{$index+1}}</td>
-                  <td>{{contestant.name}}</td>
-                  <td>{{contestant.height}}</td>
-                  <td>{{contestant.weight}}</td>
-                  <td>{{contestant.begfatPercentage}}</td>
-                  <td>{{contestant.endfatPercentage}}</td>
-                  <td>{{contestant.percentageLoss}}</td>
                   <td>
-                    <input class="btn-primary" type="submit" value="save">
-                    <input class="btn-warning" type="submit" value="delete">
+                    <div ng-hide="contestant.editData">{{contestant.name}}</div>
+                    <div ng-show="contestant.editData">
+                      <input type="text" name = "name" ng-model="name" placeholder={{contestant.name}}>
+                    </div>
+                  </td>
+                  <td>
+                    <div ng-hide="contestant.editData">{{contestant.height}}</div>
+                    <div ng-show="contestant.editData">
+                      <input type="text" name = "name" ng-model="height" placeholder={{contestant.height}}>
+                    </div>
+                  </td>
+                  <td>
+                    <div ng-hide="contestant.editData">{{contestant.weight}}</div>
+                    <div ng-show="contestant.editData">
+                      <input type="text" name = "name" ng-model="weight" placeholder={{contestant.weight}}>
+                    </div>
+                  </td>
+                  <td>
+                    <div ng-hide="contestant.editData">{{contestant.begfatPercentage}}</div>
+                    <div ng-show="contestant.editData">
+                      <input type="text" name = "name" ng-model="begBodyFat" placeholder={{contestant.begfatPercentage}}>
+                    </div>
+                  </td>
+                  <td>
+                    <div ng-hide="contestant.editData">{{contestant.endfatPercentage}}</div>
+                    <div ng-show="contestant.editData">
+                      <input type="text" name = "name" ng-model="endBodyFat" placeholder={{contestant.endfatPercentage}}>
+                    </div>
+                  </td>
+                  <td>
+                    <div>{{contestant.percentageLoss}}</div>
+                  </td>
+                  <td>
+                    <div ng-hide="contestant.editData">
+                      <input class="btn-primary" type="submit" ng-click="editContestant(contestant)" value="edit">
+                      <input class="btn-danger" type="submit" ng-click="deleteContestant($index)" value="delete">
+                    </div>
+                    <div ng-show="contestant.editData">
+                      <input class="btn-primary" type="submit" value="save">
+                      <input class="btn-primary" type="submit" value="cancel">
+                    </div>
                   </td>
                 </div>
               </tr>
