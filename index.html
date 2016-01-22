@@ -12,6 +12,11 @@
       <div class="page-header">
         <h1>Contestants {{test}}!</h1>
       </div>
+      <div class="alert alert-info">
+        <p>Sort Type: {{sortType}}</p>
+        <p>Sort Reverse: {{sortReverse}}</p>
+        <p>Search Query: {{searchContestant}}</p>
+      </div>
       <div class="row">
         <div class="col-md-12">
           <form>
@@ -20,7 +25,7 @@
                     <span class="glyphicon glyphicon-search" aria-hidden="true">
                     </span>
                   </button>
-                  <input type="text" class="form-control" placeholder="Search" ng-model="searchContestant">
+                  <input type="text" class="form-control" placeholder="Search contestants" ng-model="searchContestant">
             </div>
           </form>
           <table class="table table-striped table-bordered">
@@ -28,25 +33,25 @@
               <tr>
                 <th>#</th>
                 <th>
-                  <a href="" ng-click="sortType= 'name'; sortReverse = !sortReverse">
+                  <a href="" ng-click="sortType='name'; sortReverse = !sortReverse">
                   Name
                   <span ng-show="sortType == 'name' && !sortReverse" class="caret"></span>
                   <span ng-show="sortType == 'name' && sortReverse" class="dropup"><span class="caret"></span></span>
                 </th>
                 <th>
-                  <a href="" ng-click="sortType= 'height'; sortReverse = !sortReverse">
+                  <a href="" ng-click="sortType='height'; sortReverse = !sortReverse">
                   Height
                   <span ng-show="sortType == 'height' && !sortReverse" class="caret"></span>
                   <span ng-show="sortType == 'height' && sortReverse" class="dropup"><span class="caret"></span></span>
                 </th>
                 <th>
-                  <a href="" ng-click="sortType= 'weight'; sortReverse = !sortReverse">
+                  <a href="" ng-click="sortType = 'weight'; sortReverse = !sortReverse">
                   Weight
                   <span ng-show="sortType == 'weight' && !sortReverse" class="caret"></span>
                   <span ng-show="sortType == 'weight' && sortReverse" class="dropup"><span class="caret"></span></span>
                 </th>
                 <th>
-                  <a href="" ng-click="sortType= 'begfatPercentage'; sortReverse = !sortReverse">
+                  <a href="" ng-click="sortType='begfatPercentage'; sortReverse = !sortReverse">
                   Begining Percentage Body Fat
                   <span ng-show="sortType == 'begfatPercentage' && !sortReverse" class="caret"></span>
                   <span ng-show="sortType == 'begfatPercentage' && sortReverse" class="dropup"><span class="caret"></span></span>
