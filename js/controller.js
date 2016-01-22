@@ -45,10 +45,12 @@ angular.module("myControllers", [])
     percentageLoss: 0
   }];
   $scope.test = "2016";
+  var contestantBackups= {};
 
   $scope.editContestant = function(contestant) {
     // console.log(contestant.name)
-    contestant.editData = true
+    contestantBackups[contestant.id] = angular.copy(contestant);
+    contestant.editData = true;
   }
   $scope.addContestant = function() {
     // console.log($scope.id())
@@ -62,11 +64,15 @@ angular.module("myControllers", [])
       endfatPercentage: $scope.endBodyFat
     })
   }
-  $scope.deleteContestant = function(idx) {
+  $scope.deleteContestant = function(myidx) {
     // console.log(idx)
-    $scope.contestants.splice(idx, 1)
+    $scope.contestants.splice(myidx, 1)
   }
-  $scope.cancel = function() {
-    
+  $scope.cancelEdit = function(idx, contestant) {
+    $scope.contestants[idx] = contestantBackups[contestant.id]
+  }
+  $scope.saveEdit = function(idx, contestant) {
+    contestant.editData = false
+
   }
 })
