@@ -16,6 +16,7 @@ angular.module("myControllers", [])
     // console.log(startCounter)
     return startCounter
   };
+  var contest ={}
   $scope.contestants = [{
     id: 1,
     editData: false,
@@ -64,12 +65,22 @@ angular.module("myControllers", [])
       endfatPercentage: $scope.endBodyFat
     })
   }
-  $scope.deleteContestant = function(myidx) {
+  $scope.deleteContestant = function(myidx, contestant) {
     // console.log(idx)
-    $scope.contestants.splice(myidx, 1)
+    // $scope.contestants.splice(myidx, 1)
+    for (i=0; i< $scope.contestants.length; i++) {
+      if ($scope.contestants[i].id == contestant.id) {
+          $scope.contestants.splice(i, 1)
+      }
+    }
   }
   $scope.cancelEdit = function(idx, contestant) {
-    $scope.contestants[idx] = contestantBackups[contestant.id]
+    // $scope.contestants[idx] = contestantBackups[contestant.id]
+    for (i=0; i< $scope.contestants.length; i++) {
+      if ($scope.contestants[i].id == contestant.id) {
+          $scope.contestants[i]=contestantBackups[contestant.id]
+      }
+    }
   }
   $scope.saveEdit = function(idx, contestant) {
     contestant.editData = false

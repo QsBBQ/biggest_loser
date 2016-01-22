@@ -82,7 +82,7 @@
                   <td>
                     <div ng-hide="contestant.editData">
                       <input class="btn-primary" type="submit" ng-click="editContestant(contestant)" value="edit">
-                      <input class="btn-danger" type="submit" ng-click="deleteContestant($index)" value="delete">
+                      <input class="btn-danger" type="submit" ng-click="deleteContestant($index,contestant)" value="delete">
                     </div>
                     <div ng-show="contestant.editData">
                       <input class="btn-primary" type="submit" ng-click="saveEdit($index,contestant)" value="save">
