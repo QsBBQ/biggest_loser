@@ -1,10 +1,9 @@
 angular.module("myControllers", [])
 .controller("myController", function($scope) {
-  // Thinking about how to make this better to allow editing multiple rows
   $scope.editData = false;
   $scope.name = "";
   $scope.height = "";
-  $scope.weight = "";
+  $scope.weight = 0;
   $scope.begBodyFat = 0;
   $scope.endBodyFat = 0;
   $scope.sortType = "name";
@@ -64,6 +63,7 @@ angular.module("myControllers", [])
       begfatPercentage: $scope.begBodyFat,
       endfatPercentage: $scope.endBodyFat
     })
+    console.log($scope.contestants)
   }
   $scope.deleteContestant = function(myidx, contestant) {
     // console.log(idx)
